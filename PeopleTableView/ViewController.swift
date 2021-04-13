@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +23,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
     }
+}
+
+
+extension ViewController :  UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,13 +42,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.titleLbl.text = people[indexPath.row].title
             cell.descriptionLbl.text = people[indexPath.row].description
             return cell
-        }else {
+        } else {
             return UITableViewCell()
         }
-        
     }
-    
-    
-    
 }
-
